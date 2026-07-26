@@ -30,6 +30,18 @@ function getDomain(url) {
 }
 
 /**
+ * Escapes HTML special characters so clip text/notes/tags/titles can never
+ * be interpreted as markup when inserted via innerHTML. Without this, a
+ * clip saved from a page containing something like <img src=x onerror=...>
+ * as selected text could execute arbitrary script in the popup.
+ */
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str ?? "";
+  return div.innerHTML;
+}
+
+/**
  * Builds the DOM element for a single clip card: the quoted text, optional
  * note, tag pills, source link + date, and the Copy/Delete buttons.
  * Returns the element so the caller can decide where to insert it
@@ -40,14 +52,14 @@ function renderClip(clip) {
   div.className = "clip";
 
   // Build tag pills as a string of <span> elements, one per tag
-  const tagsHtml = (clip.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+  const tagsHtml = (clip.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("");
 
   div.innerHTML = `
-    <p class="clip-text">"${clip.text}"</p>
-    ${clip.note ? `<p class="clip-note">Note: ${clip.note}</p>` : ""}
+    <p class="clip-text">"${escapeHtml(clip.text)}"</p>
+    ${clip.note ? `<p class="clip-note">Note: ${escapeHtml(clip.note)}</p>` : ""}
     ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ""}
     <div class="clip-meta">
-      <a href="${clip.url}" target="_blank">${clip.title}</a>
+      <a href="${encodeURI(clip.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(clip.title)}</a>
       <span>${new Date(clip.createdAt).toLocaleDateString()}</span>
     </div>
     <div class="clip-actions">
