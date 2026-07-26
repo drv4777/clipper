@@ -1,0 +1,153 @@
+/* ===== Base layout ===== */
+body {
+  width: 320px;
+  max-height: 450px;
+  overflow-y: auto;
+  font-family: -apple-system, sans-serif;
+  padding: 12px 12px 20px 12px; /* extra bottom padding so the last card isn't clipped by the scrollbar */
+  margin: 0;
+}
+
+h3 {
+  margin: 0 0 8px 0;
+}
+
+/* ===== Top controls: search bar, group toggle, export button ===== */
+.controls {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+#search {
+  width: 100%;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.controls #search {
+  flex: 1; /* let the search box fill remaining space next to the buttons */
+  margin-bottom: 0;
+}
+
+#group-toggle, #export-btn {
+  font-size: 11px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ===== Clip cards ===== */
+.clip {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.clip-text {
+  font-size: 13px;
+  margin: 0 0 6px 0;
+}
+
+.clip-note {
+  font-size: 12px;
+  color: #555;
+  background: #f7f7f7;
+  padding: 4px 6px;
+  border-radius: 4px;
+  margin: 6px 0;
+}
+
+.clip-meta {
+  font-size: 11px;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+}
+
+.clip-meta a {
+  color: #888;
+  text-decoration: none;
+}
+
+/* ===== Tag pills ===== */
+.tags {
+  margin: 4px 0 8px 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: #e0e6ff;
+}
+
+/* ===== Copy / Delete buttons ===== */
+.clip-actions {
+  display: flex;
+  align-items: center; /* keeps both buttons vertically centered relative to each other */
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.copy-btn, .delete-btn {
+  font-size: 11px;
+  font-family: inherit; /* avoid OS default button font, which caused a size mismatch */
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0; /* remove default browser button margin, also part of the alignment fix */
+  vertical-align: baseline;
+}
+
+.copy-btn {
+  color: #4f46e5;
+}
+
+.delete-btn {
+  color: #c0392b;
+}
+
+.copy-btn:hover, .delete-btn:hover {
+  text-decoration: underline;
+}
+
+/* ===== Group-by-site headers ===== */
+.group-header {
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  margin: 12px 0 6px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+}
+
+/* ===== Clip list container / empty state ===== */
+#clip-list {
+  padding-bottom: 8px;
+}
+
+.empty-state {
+  color: #999;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 30px;
+}

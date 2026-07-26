@@ -1,0 +1,9 @@
+# For safety
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
