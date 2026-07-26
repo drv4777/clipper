@@ -55,7 +55,6 @@ A lightweight Chrome extension for saving highlighted text from any webpage — 
 
 ## Possible future improvements
 
-- Cross-device sync via `chrome.storage.sync`
 - Edit notes/tags after saving (currently only settable at save time)
 - Import previously exported Markdown files back into the extension
 - Firefox/Edge compatibility (currently Chrome-only, Manifest V3)
