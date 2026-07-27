@@ -1,3 +1,18 @@
+// Pre-fill the note/tags fields if we're editing an existing clip
+// (i.e. this popup was opened via the Edit button, not a fresh save)
+async function prefillForm() {
+  const { pendingClipId } = await chrome.storage.sync.get("pendingClipId");
+  const key = `clip_${pendingClipId}`;
+  const { [key]: clip } = await chrome.storage.sync.get(key);
+
+  if (clip) {
+    document.getElementById("note").value = clip.note || "";
+    document.getElementById("tags").value = (clip.tags || []).join(", ");
+  }
+}
+
+prefillForm();
+
 // Fires when the user clicks "Save" in the note popup window
 document.getElementById("save").addEventListener("click", async () => {
   const note = document.getElementById("note").value;

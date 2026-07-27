@@ -4,12 +4,15 @@
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <h3>Clipper</h3>
+  <h3>Clipper <span id="clip-count" class="count-badge"></span></h3>
   <div class="controls">
     <input type="text" id="search" placeholder="Search clips..." />
     <button id="group-toggle">Group by site</button>
   </div>
   <button id="export-btn" style="margin-bottom: 10px; width: 100%;">Export Markdown</button>
+  <input type="file" id="import-file" accept=".md" style="display: none;" />
+  <button id="import-btn" style="margin-bottom: 10px; width: 100%;">Import Markdown</button>
+  <button id="delete-all-btn" style="margin-bottom: 10px; width: 100%; color: #c0392b;">Delete All</button>
   <div id="clip-list"></div>
   <script src="popup.js"></script>
 </body>

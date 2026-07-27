@@ -12,6 +12,12 @@ h3 {
   margin: 0 0 8px 0;
 }
 
+.count-badge {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888;
+}
+
 /* ===== Top controls: search bar, group toggle, export button ===== */
 .controls {
   display: flex;
@@ -97,7 +103,7 @@ h3 {
   background: #e0e6ff;
 }
 
-/* ===== Copy / Delete buttons ===== */
+/* ===== Buttons ===== */
 .clip-actions {
   display: flex;
   align-items: center; /* keeps both buttons vertically centered relative to each other */
@@ -127,6 +133,32 @@ h3 {
 
 .copy-btn:hover, .delete-btn:hover {
   text-decoration: underline;
+}
+
+.edit-btn, .copy-btn, .delete-btn {
+  font-size: 11px;
+  font-family: inherit;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+.edit-btn {
+  color: #555;
+}
+
+#import-btn {
+  font-size: 11px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  width: 100%;
 }
 
 /* ===== Group-by-site headers ===== */
