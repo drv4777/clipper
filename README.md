@@ -42,7 +42,7 @@ A lightweight Chrome extension for saving highlighted text from any webpage — 
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/yourusername/clipper-extension.git
+   git clone https://github.com/drv4777/clipper-extension.git
    ```
 2. Open Chrome and go to `chrome://extensions`
 3. Enable **Developer mode** (top right toggle)
